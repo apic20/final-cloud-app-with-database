@@ -99,8 +99,8 @@ class Question(models.Model):
     # Foreign key to lesson
     # question text
     # question grade/mark
-    lesson = models.ForeignKey(Lesson,on_delete=models.CASCADE)
-    question = models.CharField(max_length=200)
+    lesson_id = models.ForeignKey(Lesson,on_delete=models.CASCADE)
+    question_text = models.CharField(max_length=200)
     grade = models.IntegerField()
 
 
@@ -115,12 +115,12 @@ class Question(models.Model):
 
 
 class Choice(models.Model):
-    question = models.ForeignKey(Question,on_delete=models.CASCADE)
-    choice = models.CharField(max_length=200)
-    correct = models.BooleanField()
+    question_id = models.ForeignKey(Question,on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    is_correct = models.BooleanField()
 
 
 class Submission(models.Model):
-    enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
+    enrollment_id = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
     choices = models.ManyToManyField(Choice)
 #    Other fields and methods you would like to design
