@@ -53,15 +53,20 @@
             <!-- Task: show questions and choices -->
             <!-- <HINT> Use Bootstrap Collapse to hide exam first, more details could be found here
             https://www.w3schools.com/bootstrap4/bootstrap_collapse.asp-->
-
+            {% if user.is_authenticated %}
+                <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#exam">Sart Exam</button>
             <!--
-
+                
             A collapse example here:
+            -->
             <div id="exam" class="collapse">
                 Click to expand elements within the collapse div
                 </div>
+            
+            {% else %}
 
-            -->
+
+            {% endif %}
 
             <!-- <HINT> If user is authenticated, show course exam with a list of question -->
 
