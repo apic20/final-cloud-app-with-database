@@ -63,7 +63,8 @@
                 Click to expand elements within the collapse div
                     
                         <!-- A choice submission form example -->
-                        <form id="questionform" action="point to a submit view" method="post">
+                        <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
+                            <!-- <input hidden name= "course" value="{{course.id}}"> -->
                                 {% for lesson in course.lesson_set.all %}
                                     {% for question in lesson.question_set.all %}
                                     <div class="card mt-1">
